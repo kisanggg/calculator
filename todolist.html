@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            text-align:center;
+        }
+        #myUl{
+            text-align: center;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <h1 class="heading">My To DO List</h1>
+    <div id="mainDiv"class="container">
+        <input type="text" class="todo" placeholder="Add something to do...." id="myTodo">
+        <button id="add" class="button"  onclick="newElement()">Add</button>
+    </div>
+    <ul id="myUl">
+       <li>
+        <input type="checkbox" unchecked="unchecked" >
+        <input type="text" class="text" value="install node js">
+        <button type="delete" class="button" onclick="newDelete()">remove</button>
+       </li>
+       <li>
+        <input type="checkbox" unchecked="unchecked" >
+        <input type="text" class="text" value="install Angular CLI">
+        <button type="delete" class="button" onclick="newDelete()">remove</button>
+       </li>
+       <li>
+        <input type="checkbox" unchecked="unchecked" >
+        <input type="text" class="text" value="create new app">
+        <button type="delete" class="button" onclick="newDelete()">remove</button>
+       </li>
+       <li>
+        <input type="checkbox" unchecked="unchecked" >
+        <input type="text" class="text" value="develop app">
+        <button type="delete" class="button" onclick="newDelete()">remove</button>
+       </li>
+       <li>
+        <input type="checkbox" unchecked="unchecked" >
+        <input type="text" class="text" value="deploy app">
+        <button type="delete" class="button" onclick="newDelete()">remove</button>
+       </li>
+
+    </ul>
+    <script>
+        function newElement(){
+            document.getElementById("add")
+        }
+        function newDelete(){
+            
+        }
+    </script>
+</body>
+</html>
