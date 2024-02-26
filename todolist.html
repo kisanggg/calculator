@@ -11,11 +11,11 @@
         }
         .container{
             border:2px solid black;
-            width:500px;
+            width:600px;
             margin-left: 320px;
         }
         .myTodo{
-            background-color: rgb(15, 137, 208);
+            background-color: rgb(51, 145, 199);
             height: 150px;
             padding:2px;
             text-align: center;  
@@ -29,27 +29,37 @@
             border:1px solid black;
             margin-right: 1px;
         }
-        .button{
+        .delete{
             border:1px solid black;
             border-radius:4px;
             height:23px;
-            margin:1px;
+            margin-left:4px;
         }
         .Ul{
             text-align: center;
             
         }
         .myElement{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
             width:400px;
         }
         .class{
             width:700px;
         }
         .text{
-            width:320px;
+            width:480px;
         }
         h3{
             text-align: center;
+        }
+        .button{
+            border: 1px solid black;
+            border-radius: 4px;
+            height: 23px;
+            margin-left: 5px;
+            color: rgb(19, 18, 18);
         }
         
         
@@ -66,36 +76,74 @@
    <div class="list">
     <h3>LIST OF WORKS TODO:</h3>
     <ul id="myUl" class="Ul">
-       <div id="element" class="myElement">
-        <input type="text" class="text" value="install node js">
-        <button type="delete" class="button" onclick="newDelete()">remove</button>
-       </div>
-       <div id="element" class="myElement">
-        <input type="text" class="text" value="install Angular CLI">
-        <button type="delete" class="button" onclick="newDelete()">remove</button>
-       </div>
-       <div id="element" class="myElement">
-        <input  type="text" class="text" value="create new app">
-        <button type="delete" class="button" onclick="newDelete()">remove</button>
-       </div>
-       <div id="element" class="myElement">
-        <input type="text" class="text" value="develop app">
-        <button type="delete" class="button" onclick="newDelete()">remove</button>
-       </div>
-       <div id="element" class="myElement">
-        <input type="text" class="text" value="deploy app">
-        <button type="delete" class="button" onclick="newDelete()">remove</button>
-       </div>
-
+       
     </ul>
 </div>
 </div>
     <script>
+        var todos = [
+            "install node js",
+            "install Angular CLI",
+            "create new app",
+            "develop app",
+            "deploy app"
+            ]
         function newElement(){
-            const x=document.getElementById("add");
-            const y=document.getElementById("myUl");
-            y.appendChild(x);
-        }
+            var todoinput=document.getElementById("myTodo").value.trim();
+            if(todoinput==="")return;
+            todos.push(todoinput);
+            console.log(todos);
+            document.getElementById("myTodo").value = "";
+            renderTodos();
+        };
+
+       
+        function renderTodos() {
+    var todoList = document.getElementById("myUl");
+    todoList.innerHTML = ""; 
+
+    todos.map(function(todo) {
+        var newTododiv = document.createElement("div");
+        newTododiv.className = "myElement";
+        newTododiv.id = "element";
+        
+        var todoDiv = document.createElement("div");
+        todoDiv.className = "myElement";
+
+        var todoInput = document.createElement("input");
+        todoInput.type = "text";
+        todoInput.className = "text";
+        todoInput.value = todo ;
+        todoInput.readOnly = true;
+
+        var editButton = document.createElement("button");
+            editButton.type = "button";
+            editButton.className = "button";
+            editButton.innerText = "edit";
+            editButton.onclick = function() {
+                todoInput.readOnly = false;
+                todoInput.focus(); 
+            };
+       
+
+        var deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.className = "delete";
+        deleteButton.innerText = "remove";
+        deleteButton.onclick = function() {
+            todos = todos.filter(function(item) {
+                        return item !== todo;
+                    });
+                    
+                    renderTodos();
+        };
+        todoDiv.appendChild(todoInput);
+        todoDiv.appendChild(deleteButton);
+        todoDiv.appendChild(editButton);
+        todoList.appendChild(todoDiv);
+    });
+}
+
         function newDelete(){
             const elem=document.getElementById("element");
             elem.remove();
