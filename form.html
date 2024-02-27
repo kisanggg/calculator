@@ -175,7 +175,7 @@
         <br>
         <p>
         <label for="work phone">Work Phone </label>
-        <input type="tel" name="workPhn" class="workPhn"  required>
+        <input type="tel" name="workPhn" class="workPhn" onkeydown="return keypress(event.key)" required>
         </p>
         <br>
         <p>
@@ -302,6 +302,9 @@
             `
             ;
             document.body.appendChild(displayDiv);
+        }
+        function keypress(key){
+            return(key>='0' && key<='9')|| ['+','(',')','-','Backspace'].includes(key);
         }
     </script>
     
