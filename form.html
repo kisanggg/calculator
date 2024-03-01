@@ -103,7 +103,7 @@
         height: 40px;
         font-weight: 300;
         background-color: rgb(100, 138, 204);
-        color: rgb(27, 27, 27);
+        color: rgb(255, 254, 254);
         border: 1.3px solid black;
         border-radius: 5px;
         font-size: 20px;
@@ -111,7 +111,8 @@
       }
 
       button:hover {
-        background-color: rgb(58, 59, 61);
+        background-color: rgb(71, 99, 183);
+        cursor: pointer;
       }
 
       .right {
@@ -180,15 +181,16 @@
         background-color: rgba(47, 46, 46, 0.5);
         backdrop-filter: blur(10px);
         z-index: 999;
-        display: none;
+        display: flex;
+        justify-content: center;
+        text-align: start;
+        align-items: center;
       }
-
-      .modal {
+    .modal {
+          
+        justify-content: center;
+        align-items: center;
         z-index: 1000;
-        left: 50%;
-        top: 50%;
-        margin-top: 90px;
-        margin-left: 170px;
         width: 900px;
         height: 400px;
         background-color: white;
@@ -248,7 +250,11 @@
       }
       h2 {
         padding: 5px;
+        padding-top: 9px;
         color: #0c0c0c;
+      }
+      .modal-body h2{
+        margin-top: 20px;
       }
     </style>
   </head>
@@ -412,7 +418,7 @@
     <div class="overlay" id="overlay">
       <div id="myModal" class="modal">
         <div class="modal-header">
-          <h2>Submitted Values</h2>
+          <h2>Form Details</h2>
         </div>
         <div id="modal-body" class="modal-body"></div>
         <button class="btn" onclick="closeOverlay()">Close</button>
@@ -442,7 +448,7 @@
         overlay.innerHTML = `
         <div  id="myModal" class="modal">
             <div class="modal-header">
-                <h2>Submitted Values</h2>
+                <h2>Form Details</h2>
             </div>
             <div class="modal-body">
                 <div class="column">
@@ -473,7 +479,7 @@
             overlay.style.display = "none";
           }
         });
-        overlay.style.display = "block";
+        overlay.style.display = "flex";
       }
       
       
