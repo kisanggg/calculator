@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            font-weight: 100;
+            text-align:center;
+        }
+        /*.mainContainer{
+            border: 1px solid rgb(31, 30, 30);
+            width:300px;
+            justify-content: center;
+            margin-left:425px;
+            background-color: rgb(38, 36, 36);
+        }*/
+        .container{
+            border: 2px solid black;
+            padding:3px;
+            width:280px;
+            height:220px;
+            position: relative;
+            background-color: rgb(47, 46, 46);
+            border:1px solid white;
+            border-radius:5px;
+            margin:2px;
+            margin-left: auto;
+            margin-right:auto;
+        }
+        .myButton{
+            text-align:center;
+        }
+        .button{
+            margin-top: 4px;
+            height:30px;
+            width:60px;
+            background-color: rgb(89, 86, 86);
+            color:aliceblue;
+            border-radius:7px;
+            border:1px solid rgb(79, 76, 76) ;
+        }
+        .operator{
+            height:30px;
+            padding:2px;
+            margin:1px;
+            width:60px;
+            background-color: rgb(225, 130, 22);
+            color:rgb(249, 242, 232);
+            border-radius:7px;
+            border:1px solid rgb(225, 130, 22) ;
+        }
+        .acButton{
+            height:30px;
+            width:60px;
+            margin:1px;
+            background-color: rgb(233, 67, 12);
+            color:aliceblue;
+            border-radius:7px;
+            border:1px solid rgb(233, 67, 12);
+        }
+        .equal-sign{
+            width:255px;
+            height:30px;
+            background-color: rgb(51, 51, 215);
+            color:aliceblue;
+            border-radius:7px;
+            margin-top:4px;
+            border:1px solid rgb(51, 51, 215);
+            margin-bottom:4px;
+        }
+        .screen{
+            text-align:right;
+            width:250px;
+            height:30px;
+            border: 0.5px solid rgb(158, 154, 154);
+            background-color:rgb(79, 76, 76) ;
+            color:aliceblue;
+            margin-top:5px;
+        }
+
+    </style>
+</head>
+<body>
+<h1 id="demo">Simple Calculator</h1>
+<div class="mainContainer">
+    <div class="container" >
+        <div class='myButton' id='button'>
+        <input type="text" id="result" class="screen" >
+        <br>
+        <input type='button' class='button' value='7' onClick="display('7')"></input>
+        <input type='button' class='button' value='8' onclick="display('8')"></input>
+        <input type='button' class='button' value='9' onclick="display('9')"></input>
+        <input type='button' class ='operator' value='+' onclick="display('+')"></input>
+        <br>
+        <input type='button' class='button' value='4' onclick="display('4')"></input>
+        <input type='button' class='button' value='5' onclick="display('5')"></input>
+        <input type='button' class='button' value='6' onClick="display('6')"></input>
+        <input type='button' class ='operator' value='-' onclick="display('-')"></input>
+        <br>
+        <input type='button' class='button' value='1' onclick="display('1')"></input>
+        <input type='button' class='button' value='2' onclick="display('2')"></input>
+        <input type='button' class='button' value='3' onclick="display('3')"></input>
+        <input type='button' class ='operator' value='*' onclick="display('*')"></input>
+        <br>
+        <input type='button' class='button' value='0' onclick="display('0')"></input>
+        <input type="button" value="." class="button" onClick="display('.')"></input>
+        <input type='button' class='acButton' value='C' onClick="clearScreen('C')" ></input>
+        <input type='button' class='operator' value='/' onclick="display('/')"></input>
+        <br>
+        <input type="button" value= "=" class="equal-sign" onClick="solve()"></input>
+        </div>
+        <script src="index.js"></script>
+        </div>
+    </div>
+</div>
+</body>
+</html>
